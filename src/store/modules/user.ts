@@ -82,6 +82,7 @@ export const useUserStore = defineStore({
       try {
         const { goHome = true, mode, ...loginParams } = params;
         const data = await loginApi(loginParams, mode);
+        console.log('-->loginApi return data:', data);
         const { token } = data;
         console.log('-->token', token);
         // save token
@@ -106,6 +107,7 @@ export const useUserStore = defineStore({
         }
         return userInfo;
       } catch (error) {
+        console.log('error:', error);
         return Promise.reject(error);
       }
     },
