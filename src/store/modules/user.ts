@@ -88,7 +88,7 @@ export const useUserStore = defineStore({
         // save token
         this.setToken(token);
         // get user info
-        const userInfo = await this.getUserInfoAction();
+        const userInfo = await this.getUserInfoAction(loginParams.username);
 
         const sessionTimeout = this.sessionTimeout;
         if (sessionTimeout) {
@@ -111,8 +111,9 @@ export const useUserStore = defineStore({
         return Promise.reject(error);
       }
     },
-    async getUserInfoAction(): Promise<UserInfo> {
-      const userInfo = await getUserInfo();
+    async getUserInfoAction(username: string): Promise<UserInfo> {
+      const LoginParams = { username: username, password: '' };
+      const userInfo = await getUserInfo(LoginParams);
       const { roles } = userInfo;
       const roleList = roles.map((item) => item.value) as RoleEnum[];
       this.setUserInfo(userInfo);

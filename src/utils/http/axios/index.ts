@@ -39,18 +39,21 @@ const transform: AxiosTransform = {
     if (!isTransformResponse) {
       return res.data;
     }
-    // 错误的时候返回
+    // 错误的时候返回格式 {"code":-1,"result":null,"message":"Incorrect account or password！","type":"error"}
+    // 成功时返回格式 {"code":0,"result":{"roles":[{"roleName":"Super Admin","value":"super"}],"userId":"1","username":"vben","token":"fakeToken1","realName":"Vben Admin","desc":"manager"},"message":"ok","type":"success"}
     const { data } = res;
-    console.log('-->res:', data);
-    if (!data) {
+    console.log('-->res:', data['data']);
+    if (!data['data']) {
       // return '[HTTP] Request has no return value';
       throw new Error(t('sys.api.apiRequestFailed'));
     }
     //  这里 code，result，message为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
-    const { code, result, message } = data;
+    const { code, result, message } = data['data'];
 
     // 这里逻辑可以根据项目进行修改
-    const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS;
+    // eslint-disable-next-line prettier/prettier
+    const hasSuccess = data['data'] && Reflect.has(data['data'], 'code') && code === ResultEnum.SUCCESS;
+    console.log('-->hasSuccess:' + hasSuccess);
     if (hasSuccess) {
       return result;
     }
