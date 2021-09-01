@@ -15,6 +15,9 @@ import { setObjToUrlParams, deepMerge } from '/@/utils';
 import { useErrorLogStoreWithOut } from '/@/store/modules/errorLog';
 import { useI18n } from '/@/hooks/web/useI18n';
 import { joinTimestamp, formatRequestDate } from './helper';
+import { useUserStore } from '/@/store/modules/user';
+import { router } from '/@/router';
+import { PageEnum } from '/@/enums/pageEnum';
 
 const globSetting = useGlobSetting();
 const urlPrefix = globSetting.urlPrefix;
@@ -53,6 +56,15 @@ const transform: AxiosTransform = {
     // 这里逻辑可以根据项目进行修改
     // eslint-disable-next-line prettier/prettier
     const hasSuccess = data['data'] && Reflect.has(data['data'], 'code') && code === ResultEnum.SUCCESS;
+
+    // 刷新TOKEN 用户在有操作时保持登录状态 防止用户操作中突然退出登录状态
+    const refreshtoken = res.headers.refreshtoken || '';
+    const userStore = useUserStore();
+    if (refreshtoken !== '') {
+      console.log('-->refreshtoken : ' + refreshtoken);
+      userStore.setToken(refreshtoken);
+    }
+
     console.log('-->hasSuccess:' + hasSuccess);
     if (hasSuccess) {
       return result;
@@ -65,6 +77,9 @@ const transform: AxiosTransform = {
       case ResultEnum.TIMEOUT:
         timeoutMsg = t('sys.api.timeoutMessage');
         break;
+      case -1:
+        timeoutMsg = t('sys.api.timeoutMessage');
+        break;
       default:
         if (message) {
           timeoutMsg = message;
@@ -74,7 +89,13 @@ const transform: AxiosTransform = {
     // errorMessageMode=‘modal’的时候会显示modal错误弹窗，而不是消息提示，用于一些比较重要的错误
     // errorMessageMode='none' 一般是调用时明确表示不希望自动弹出错误提示
     if (options.errorMessageMode === 'modal') {
-      createErrorModal({ title: t('sys.api.errorTip'), content: timeoutMsg });
+      // createConfirm({ iconType: 'warning', title: t('sys.api.errorTip'), content: timeoutMsg });
+      console.log('-->resetState');
+      // TODO 提示用户确认是否跳转到登录页面
+      if (confirm(timeoutMsg)) {
+        userStore.resetState();
+        router.push(PageEnum.BASE_LOGIN);
+      }
     } else if (options.errorMessageMode === 'message') {
       createMessage.error(timeoutMsg);
     }
