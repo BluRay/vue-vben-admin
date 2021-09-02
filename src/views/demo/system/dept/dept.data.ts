@@ -18,7 +18,7 @@ export const columns: BasicColumn[] = [
   {
     title: '状态',
     dataIndex: 'status',
-    width: 80,
+    width: 150,
     customRender: ({ record }) => {
       const status = record.status;
       const enable = ~~status === 0;
@@ -26,11 +26,6 @@ export const columns: BasicColumn[] = [
       const text = enable ? '启用' : '停用';
       return h(Tag, { color: color }, () => text);
     },
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'createTime',
-    width: 180,
   },
   {
     title: '备注',

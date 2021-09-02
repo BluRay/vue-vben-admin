@@ -16,6 +16,7 @@ import { configThemePlugin } from './theme';
 import { configImageminPlugin } from './imagemin';
 import { configSvgIconsPlugin } from './svgSprite';
 import { configHmrPlugin } from './hmr';
+import { configVxeTablePlugin } from './vxetable';
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
@@ -56,6 +57,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 
   // vite-plugin-style-import
   vitePlugins.push(configStyleImportPlugin(isBuild));
+  vitePlugins.push(configVxeTablePlugin(isBuild));
 
   // rollup-plugin-visualizer
   vitePlugins.push(configVisualizerConfig());

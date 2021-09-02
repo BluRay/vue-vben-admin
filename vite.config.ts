@@ -8,6 +8,8 @@ import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
 import { createVitePlugins } from './build/vite/plugin';
 import { OUTPUT_DIR } from './build/constant';
+// import vue from '@vitejs/plugin-vue';
+// import styleImport from 'vite-plugin-style-import';
 
 import pkg from './package.json';
 import moment from 'moment';
@@ -94,6 +96,19 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 
     // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
     plugins: createVitePlugins(viteEnv, isBuild),
+    /**plugins: [
+      vue(),
+      styleImport({
+        libs: [
+          {
+            libraryName: 'vxe-table',
+            esModule: true,
+            resolveComponent: (name) => `vxe-table/es/${name}`,
+            resolveStyle: (name) => `vxe-table/es/${name}/style.css`
+          }
+        ]
+      })
+    ],**/
 
     optimizeDeps: {
       // @iconify/iconify: The dependency is dynamically and virtually loaded by @purge-icons/generated, so it needs to be specified explicitly
