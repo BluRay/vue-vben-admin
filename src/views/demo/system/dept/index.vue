@@ -1,5 +1,11 @@
+<!--  2021-09-01
+  vite 模式下组件注册测试
+  使用 VXETable 表格组件
+-->
 <template>
   <div>
+    <p>使用 VXETable 表格组件</p>
+    <!-- 
     <vxe-table
       ref="xTable"
       border
@@ -24,22 +30,19 @@
       :total="tableData.totalCount"
       :layouts="['PrevPage', 'JumpNumber', 'NextPage', 'FullJump', 'Sizes', 'Total']"
       @page-change="handlePageChange"
-    />
+    /> -->
   </div>
 </template>
 
 <script lang="ts">
-  import 'xe-utils';
-  import VXETable from 'vxe-table';
-  import 'vxe-table/lib/style.css';
+  // import 'xe-utils';
+  // import VXETable from 'vxe-table';
+  // import 'vxe-table/lib/style.css';
   export default {
     name: 'DeptManagement',
-    components: { VXETable },
-    props: {
-      title: String,
-    },
-    setup(props) {
-      console.log(props.title);
+    // components: { VXETable },
+    setup() {
+      console.log('-->DeptManagement setup');
     },
     data() {
       return {
