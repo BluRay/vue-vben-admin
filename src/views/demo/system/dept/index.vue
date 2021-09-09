@@ -4,7 +4,17 @@
 -->
 <template>
   <div>
-    <p>使用 VXETable 表格组件</p>
+    <p>----使用 VXETable 表格组件--</p>
+    <vxe-table ref="xTable" border height="600" :data="tableData">
+      <vxe-column field="name" title="Name" />
+      <vxe-column field="age" title="Age" />
+      <vxe-column
+        field="date"
+        title="Date"
+        :filters="[{ data: [] }]"
+        :filter-render="{ name: 'AInput' }"
+      />
+    </vxe-table>
     <!-- 
     <vxe-table
       ref="xTable"
@@ -35,21 +45,19 @@
 </template>
 
 <script lang="ts">
-  // import 'xe-utils';
-  // import VXETable from 'vxe-table';
-  // import 'vxe-table/lib/style.css';
+  // import { VXETable } from 'vxe-table';
+  // import VXETablePluginAntd from 'vxe-table-plugin-antd';
+  // import 'vxe-table-plugin-antd/dist/style.css';
+  // VXETable.use(VXETablePluginAntd);
   export default {
-    name: 'DeptManagement',
     // components: { VXETable },
     setup() {
-      console.log('-->DeptManagement setup');
-    },
-    data() {
       return {
-        showModel: false,
-        loading: false,
-        tableheight: '500px',
-        tableData: {},
+        tableData: [
+          { id: 100, name: 'test0', age: 28, date: null },
+          { id: 101, name: 'test1', age: 32, date: null },
+          { id: 102, name: 'test2', age: 36, date: null },
+        ],
       };
     },
   };

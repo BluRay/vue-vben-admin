@@ -6,12 +6,6 @@ import 'virtual:windi.css';
 import 'virtual:svg-icons-register';
 import App from './App.vue';
 
-// import 'xe-utils';
-// import VXETable from 'vxe-table';
-// import 'vxe-table/lib/style.css';
-
-// import { useTable } from './plugins/vxe-table';
-
 import { createApp } from 'vue';
 import { initAppConfigStore } from '/@/logics/initAppConfig';
 import { setupErrorHandle } from '/@/logics/error-handle';

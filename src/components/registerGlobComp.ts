@@ -15,5 +15,5 @@ export function registerGlobComp(app: App) {
     app.component(comp.name || comp.displayName, comp);
   });
 
-  app.use(Input).use(Button).use(Layout);
+  app.use(Input).use(Button).use(Layout); //.use(Header).use(Icon).use(Column).use(Table);
 }

@@ -1222,6 +1222,11 @@
   resolved "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
+"@element-plus/icons@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@element-plus/icons/-/icons-0.0.11.tgz#9b187c002774548b911850d17fa5fc2f9a515f57"
+  integrity sha512-iKQXSxXu131Ai+I9Ymtcof9WId7kaXvB1+WRfAfpQCW7UiAMYgdNDqb/u0hgTo2Yq3MwC4MWJnNuTBEpG8r7+A==
+
 "@emmetio/abbreviation@^2.2.2":
   version "2.2.2"
   resolved "https://registry.npmjs.org/@emmetio/abbreviation/-/abbreviation-2.2.2.tgz"
@@ -1635,6 +1640,11 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
+
+"@popperjs/core@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.1.tgz#728ecd95ab207aab8a9a4e421f0422db329232be"
+  integrity sha512-HnUhk1Sy9IuKrxEMdIRCxpIqPw6BFsbYSEUO9p/hNw5sMld/+3OLMWQP80F8/db9qsv3qUjs7ZR5bS/R+iinXw==
 
 "@purge-icons/core@^0.7.0":
   version "0.7.0"
@@ -2805,7 +2815,7 @@ astral-regex@^2.0.0:
   resolved "https://registry.npmjs.org/astral-regex/-/astral-regex-2.0.0.tgz"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-async-validator@^3.3.0:
+async-validator@^3.3.0, async-validator@^3.4.0:
   version "3.5.2"
   resolved "https://registry.npmjs.org/async-validator/-/async-validator-3.5.2.tgz"
   integrity sha512-8eLCg00W9pIRZSB781UUX/H6Oskmm8xloZfr09lz5bikRpBVDlJ3hRVuxxP1SxcwsEYfJ4IU8Q19Y8/893r3rQ==
@@ -4156,6 +4166,11 @@ dateformat@^3.0.0:
   resolved "https://registry.npmjs.org/dateformat/-/dateformat-3.0.3.tgz"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
+dayjs@1.x:
+  version "1.10.6"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.6.tgz#288b2aa82f2d8418a6c9d4df5898c0737ad02a63"
+  integrity sha512-AztC/IOW4L1Q41A86phW5Thhcrco3xuAA+YX/BLpLWWjRcTj5TOt/QImBLmCKlrF7u7k47arTnOyL6GnbG8Hvw==
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
@@ -4546,6 +4561,20 @@ electron-to-chromium@^1.3.723:
   version "1.3.752"
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.752.tgz"
   integrity sha512-2Tg+7jSl3oPxgsBsWKh5H83QazTkmWG/cnNwJplmyZc7KcN61+I10oUgaXSVk/NwfvN3BdkKDR4FYuRBQQ2v0A==
+
+element-plus@1.1.0-beta.9:
+  version "1.1.0-beta.9"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.1.0-beta.9.tgz#e193cc956dfc9b731ed5cb32e2df0eddafd95dcd"
+  integrity sha512-QA5jOHDGSDJqVGAgzNrv5TTd/bLW+zICWy1ZQuvShzfrrIX8W+xL3RZdHJWANHhbBetLBHPFMvEzLSPvPmUosw==
+  dependencies:
+    "@element-plus/icons" "^0.0.11"
+    "@popperjs/core" "^2.10.1"
+    async-validator "^3.4.0"
+    dayjs "1.x"
+    lodash "^4.17.21"
+    mitt "^2.1.0"
+    normalize-wheel "^1.0.1"
+    resize-observer-polyfill "^1.5.1"
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -7977,6 +8006,11 @@ minimist@1.2.5, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
+mitt@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/mitt/-/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
+  integrity sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
+
 mixin-deep@^1.2.0:
   version "1.3.2"
   resolved "https://registry.npmjs.org/mixin-deep/-/mixin-deep-1.3.2.tgz"
@@ -8191,6 +8225,11 @@ normalize-url@2.0.1:
     prepend-http "^2.0.0"
     query-string "^5.0.1"
     sort-keys "^2.0.0"
+
+normalize-wheel@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/normalize-wheel/-/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
+  integrity sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU=
 
 npm-conf@^1.1.0:
   version "1.1.3"
@@ -11529,6 +11568,16 @@ vue@3.1.5:
     "@vue/compiler-dom" "3.1.5"
     "@vue/runtime-dom" "3.1.5"
     "@vue/shared" "3.1.5"
+
+vxe-table-plugin-antd@1.11.2:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/vxe-table-plugin-antd/-/vxe-table-plugin-antd-1.11.2.tgz#9e517272a816953d68e58e500a0da9098f12585e"
+  integrity sha512-mqs+JitYQNmi+bfR4nsAwLvlZhID0ytcFVCHCMDMgeAGqFy9e+a5Fmym6sDsgtQ8p5xdFaSdBVAR/UzUd4AoLA==
+
+vxe-table-plugin-element@1.11.2:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/vxe-table-plugin-element/-/vxe-table-plugin-element-1.11.2.tgz#541631d3d39a13a525773da4c6cf4a54722f2f17"
+  integrity sha512-H2J/bF5zBti89gJQ0P52wR7/CkCwziEJ+xj+UOsw1e0Xh3yA6fwmfG7QuNm3P9EzxjkdUV35pgjViptUtD8f+w==
 
 vxe-table@^3.3.9:
   version "3.3.12"

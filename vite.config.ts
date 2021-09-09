@@ -8,11 +8,13 @@ import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
 import { createVitePlugins } from './build/vite/plugin';
 import { OUTPUT_DIR } from './build/constant';
-// import vue from '@vitejs/plugin-vue';
-// import styleImport from 'vite-plugin-style-import';
 
 import pkg from './package.json';
 import moment from 'moment';
+
+import VXETable from 'vxe-table';
+import VXETablePluginAntd from 'vxe-table-plugin-antd';
+// import 'vxe-table-plugin-antd/dist/style.css';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -35,6 +37,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const { VITE_PORT, VITE_PUBLIC_PATH, VITE_PROXY, VITE_DROP_CONSOLE } = viteEnv;
 
   const isBuild = command === 'build';
+
+  VXETable.use(VXETablePluginAntd);
 
   return {
     base: VITE_PUBLIC_PATH,
